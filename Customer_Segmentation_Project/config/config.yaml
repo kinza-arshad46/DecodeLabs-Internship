@@ -1,0 +1,31 @@
+# Project Configuration - Customer Segmentation (DecodeLabs Project 3)
+
+data:
+  raw_path: "data/marketing_campaign.csv"
+  processed_path: "data/processed_customers.csv"
+  random_state: 42
+
+preprocessing:
+  drop_columns:
+    - "ID"
+    - "Z_CostContact"
+    - "Z_Revenue"
+  date_column: "Dt_Customer"
+  target_year: 2015   # for age calculation
+
+pca:
+  n_components: null          # auto by variance
+  variance_threshold: 0.95
+  n_components_for_viz: 3     # for 2D/3D plots
+
+clustering:
+  algorithm: "kmeans"
+  k_range: [2, 11]
+  random_state: 42
+  n_init: 20
+  max_iter: 500
+
+output:
+  models_dir: "models"
+  plots_dir: "outputs/plots"
+  reports_dir: "reports"
